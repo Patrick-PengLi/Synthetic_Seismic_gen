@@ -345,8 +345,9 @@ def SynSeisFullRockphysics2D(Phi,Vclay,Sw,Kclay,Kquartz,Gclay,Gquartz,Rhoclay,Rh
     Seis_syn = np.zeros([ns-1,ntheta,nt])
     for i in range(nt):
         Seis = SeismicModelAkiRichard(Vp[:,i].reshape(-1, 1), Vs[:,i].reshape(-1, 1), Rho[:,i].reshape(-1, 1), theta, wavelet)
-        err = np.sqrt(err_frac * np.var(Seis))
-        Seis = Seis + err
+        err = np.sqrt(err_frac * np.var(Seis))*np.random.randn((ns-1)*ntheta)
+        
+        Seis = Seis + err.reshape(-1,1)
 
         Snear[:,i] = Seis[:ns-1].flatten() # ns-1 not include acorrding to python role
         Smid[:,i] = Seis[ns-1:2*(ns-1)].flatten() 
@@ -471,11 +472,3 @@ fig4.tight_layout()
 fig4.show()
 
 # fig4.savefig('Fig12b.tiff',dpi=400)
-
-
-
-
-
-
-
-
