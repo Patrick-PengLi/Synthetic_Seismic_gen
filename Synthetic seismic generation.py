@@ -66,21 +66,6 @@ theta_poststack = np.array([0])
 # prestack
 theta_prestack = [15, 30, 45]
 
-
-# Loading 1D dataset
-
-# dataset_1d = sio.loadmat('1DdataWell.mat')   
-
-# Depth_1d = dataset_1d['Depth']
-# Time_1d = dataset_1d['Time']
-
-# Phi_1d = dataset_1d['Phi']
-# Sw_1d = dataset_1d['Sw']
-
-# Vp_1d = dataset_1d['Vp']
-# Vs_1d = dataset_1d['Vs']
-# Rho_1d = dataset_1d['Rho']
-
 # Loading 2D dataset
 dataset_2D = sio.loadmat('Goliat2D_Torstein.mat') 
 # Depth, trace, phi, sw, Vclay, Vp, Vs, Rho,
